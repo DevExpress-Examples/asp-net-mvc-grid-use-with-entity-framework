@@ -1,0 +1,22 @@
+﻿@Code
+    ViewBag.Title = "How to adjust GridView to work with Stored Procedures (EntityFramework)"
+End Code
+
+<h4>@Html.Raw(ViewBag.Message)</h4>
+
+<script type="text/javascript">
+    function grid_EndCallback(s, e) {
+        if (typeof (s.cpMessage) != "undefined") {
+            if (s.cpMessage.indexOf("Error") != -1)
+                $('#message').attr("class", "errorMessage");
+            else
+                $('#message').attr("class", "resultMessage");
+
+            $('#message').text(s.cpMessage)
+                .fadeIn("slow");
+            delete (s.cpMessage);
+        }
+    }
+</script>
+
+@Html.Action("SupportGridPartial", "Home")
