@@ -1,0 +1,41 @@
+@model IEnumerable<StoredProcedures.Models.SelectSupportTeam_Result>
+@Html.DevExpress().GridView(settings => {
+
+    settings.Name = "supportGrid";
+    settings.CallbackRouteValues = new { Controller = "Home", Action = "SupportGridPartial" };
+
+    settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Home", Action = "SupportGridInsert" };
+    settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Home", Action = "SupportGridDelete" };
+
+    settings.KeyFieldName = "Id";
+
+    settings.CommandColumn.Visible = true;
+    settings.CommandColumn.NewButton.Visible = true;
+    settings.CommandColumn.DeleteButton.Visible = true;
+
+    settings.Columns.Add(column => {
+        column.FieldName = "Id";
+        column.Width = 100;
+
+        column.EditFormSettings.Visible = DefaultBoolean.False;
+    });
+    settings.Columns.Add(column => {
+        column.FieldName = "Name";
+        column.Width = 200;
+
+        column.EditFormSettings.ColumnSpan = 2;
+    });
+
+    settings.DataBound = (s, e) => {
+        if (TempData.ContainsKey("message"))
+            ((MVCxGridView)s).JSProperties["cpMessage"] = TempData["message"];
+    };
+
+    settings.SettingsLoadingPanel.Mode = GridViewLoadingPanelMode.ShowOnStatusBar;
+    settings.Settings.ShowStatusBar = GridViewStatusBarMode.Visible;
+
+    settings.SetStatusBarTemplateContent("<div id=\"message\" style=\"display: none;\"></div>");
+
+    settings.ClientSideEvents.EndCallback = "grid_EndCallback";
+
+}).Bind(Model).GetHtml()
