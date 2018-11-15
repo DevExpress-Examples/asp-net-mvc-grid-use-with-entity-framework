@@ -1,3 +1,10 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [HomeController.cs](./CS/Controllers/HomeController.cs) (VB: [HomeController.vb](./VB/Controllers/HomeController.vb))
+* [Index.cshtml](./CS/Views/Home/Index.cshtml)
+* [SupportGridPartial.cshtml](./CS/Views/Home/SupportGridPartial.cshtml)
+<!-- default file list end -->
 # How to adjust GridView to work with Stored Procedures (EntityFramework)
 
 
