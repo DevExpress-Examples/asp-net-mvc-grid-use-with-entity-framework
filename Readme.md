@@ -6,6 +6,9 @@
 * [SupportGridPartial.cshtml](./CS/Views/Home/SupportGridPartial.cshtml)
 <!-- default file list end -->
 # How to adjust GridView to work with Stored Procedures (EntityFramework)
+<!-- run online -->
+**[[Run Online]](https://codecentral.devexpress.com/e3355)**
+<!-- run online end -->
 
 
 <p>The example illustrates how to use GridView with EntityFramework.<br />
