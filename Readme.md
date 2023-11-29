@@ -6,7 +6,7 @@
 
 # Grid View for ASP.NET MVC - How to adjust GridView to work with Stored Procedures (EntityFramework)
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/e3355/)**
+**[[Run Online]](https://codecentral.devexpress.com/128551019/)**
 <!-- run online end -->
 
 The example demonstrates how to use GridView with EntityFramework. For more informarion and implementation details, refer to the following article: [How to adjust GridView to work with Stored Procedures (EntityFramework)](https://supportcenter.devexpress.com/ticket/details/k18520/how-to-adjust-gridview-to-work-with-stored-procedures-entityframework).
