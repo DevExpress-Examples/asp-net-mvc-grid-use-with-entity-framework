@@ -12,7 +12,7 @@
 <!-- default file list end -->
 # How to adjust GridView to work with Stored Procedures (EntityFramework)
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/e3355)**
+**[[Run Online]](https://codecentral.devexpress.com/128551019/)**
 <!-- run online end -->
 
 
