@@ -1,4 +1,4 @@
-Imports Microsoft.VisualBasic
+﻿Imports Microsoft.VisualBasic
 Imports System
 Imports System.Collections.Generic
 Imports System.Linq
@@ -6,6 +6,7 @@ Imports System.Web
 Imports System.Web.Mvc
 Imports StoredProcedures.Models
 Imports DevExpress.Web.Mvc
+Imports StoredProcedureModel
 
 Namespace StoredProcedures.Controllers
 	Public Class HomeController
@@ -35,7 +36,7 @@ Namespace StoredProcedures.Controllers
 			Return PartialView("SupportGridPartial", model)
 		End Function
 
-		<HttpPost> _
+		<HttpPost>
 		Public Function SupportGridInsert(<ModelBinder(GetType(DevExpressEditorsBinder))> ByVal supportEngineer As SelectSupportTeam_Result) As ActionResult
 			Dim context As New StoredProcedureEntities()
 			Dim result = context.InsertSupportEngineer(supportEngineer.Name).First() ' inserted key value
@@ -49,7 +50,7 @@ Namespace StoredProcedures.Controllers
 			Return PartialView("SupportGridPartial", model)
 		End Function
 
-		<HttpPost> _
+		<HttpPost>
 		Public Function SupportGridDelete(ByVal Id As Int32) As ActionResult
 			Dim context As New StoredProcedureEntities()
 

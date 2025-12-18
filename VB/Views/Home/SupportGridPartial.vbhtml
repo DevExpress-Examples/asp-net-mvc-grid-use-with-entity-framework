@@ -1,4 +1,4 @@
-@ModelType IEnumerable(Of StoredProcedures.Models.SelectSupportTeam_Result)
+@ModelType IEnumerable(Of StoredProcedureModel.SelectSupportTeam_Result)
 @Html.DevExpress().GridView(Sub(settings)
 
                                 settings.Name = "supportGrid"
@@ -10,8 +10,8 @@
                                 settings.KeyFieldName = "Id"
 
                                 settings.CommandColumn.Visible = True
-                                settings.CommandColumn.NewButton.Visible = True
-                                settings.CommandColumn.DeleteButton.Visible = True
+                                settings.CommandColumn.ShowNewButton = True
+                                settings.CommandColumn.ShowDeleteButton = True
 
                                 settings.Columns.Add(Sub(column)
                                                          column.FieldName = "Id"
