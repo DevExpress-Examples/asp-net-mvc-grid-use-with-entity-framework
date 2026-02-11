@@ -6,9 +6,6 @@
 '    Manual changes to this file will be overwritten if the code is regenerated.
 ' </auto-generated>
 '------------------------------------------------------------------------------
-
-
-Imports Microsoft.VisualBasic
 Imports System
 Imports System.Data.Objects
 Imports System.Data.Objects.DataClasses
@@ -17,295 +14,307 @@ Imports System.ComponentModel
 Imports System.Xml.Serialization
 Imports System.Runtime.Serialization
 
-<Assembly: EdmSchemaAttribute()>
-
+<Assembly:System.Data.Objects.DataClasses.EdmSchemaAttribute()>
 Namespace StoredProcedures.Models
-	#Region "Contexts"
 
-	''' <summary>
-	''' No Metadata Documentation available.
-	''' </summary>
-	Partial Public Class StoredProcedureEntities
-		Inherits ObjectContext
-		#Region "Constructors"
+'#Region "Contexts"
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    Public Partial Class StoredProcedureEntities
+        Inherits System.Data.Objects.ObjectContext
 
-		''' <summary>
-		''' Initializes a new StoredProcedureEntities object using the connection string found in the 'StoredProcedureEntities' section of the application configuration file.
-		''' </summary>
-		Public Sub New()
-			MyBase.New("name=StoredProcedureEntities", "StoredProcedureEntities")
-			Me.ContextOptions.LazyLoadingEnabled = True
-			OnContextCreated()
-		End Sub
+'#Region "Constructors"
+        ''' <summary>
+        ''' Initializes a new StoredProcedureEntities object using the connection string found in the 'StoredProcedureEntities' section of the application configuration file.
+        ''' </summary>
+        Public Sub New()
+            MyBase.New("name=StoredProcedureEntities", "StoredProcedureEntities")
+            Me.ContextOptions.LazyLoadingEnabled = True
+            Me.OnContextCreated()
+        End Sub
 
-		''' <summary>
-		''' Initialize a new StoredProcedureEntities object.
-		''' </summary>
-		Public Sub New(ByVal connectionString As String)
-			MyBase.New(connectionString, "StoredProcedureEntities")
-			Me.ContextOptions.LazyLoadingEnabled = True
-			OnContextCreated()
-		End Sub
+        ''' <summary>
+        ''' Initialize a new StoredProcedureEntities object.
+        ''' </summary>
+        Public Sub New(ByVal connectionString As String)
+            MyBase.New(connectionString, "StoredProcedureEntities")
+            Me.ContextOptions.LazyLoadingEnabled = True
+            Me.OnContextCreated()
+        End Sub
 
-		''' <summary>
-		''' Initialize a new StoredProcedureEntities object.
-		''' </summary>
-		Public Sub New(ByVal connection As EntityConnection)
-			MyBase.New(connection, "StoredProcedureEntities")
-			Me.ContextOptions.LazyLoadingEnabled = True
-			OnContextCreated()
-		End Sub
+        ''' <summary>
+        ''' Initialize a new StoredProcedureEntities object.
+        ''' </summary>
+        Public Sub New(ByVal connection As System.Data.EntityClient.EntityConnection)
+            MyBase.New(connection, "StoredProcedureEntities")
+            Me.ContextOptions.LazyLoadingEnabled = True
+            Me.OnContextCreated()
+        End Sub
 
-		#End Region
+'#End Region
+'#Region "Partial Methods"
+        Partial Private Sub OnContextCreated()
+        End Sub
 
-		#Region "Partial Methods"
+'#End Region
+'#Region "ObjectSet Properties"
+        ''' <summary>
+        ''' No Metadata Documentation available.
+        ''' </summary>
+        Public ReadOnly Property SupportTeams As ObjectSet(Of StoredProcedures.Models.SupportTeam)
+            Get
+                If(Me._SupportTeams Is Nothing) Then
+                    Me._SupportTeams = Me.CreateObjectSet(Of StoredProcedures.Models.SupportTeam)("SupportTeams")
+                End If
 
-		Partial Private Sub OnContextCreated()
-		End Sub
+                Return Me._SupportTeams
+            End Get
+        End Property
 
-		#End Region
+        Private _SupportTeams As System.Data.Objects.ObjectSet(Of StoredProcedures.Models.SupportTeam)
 
-		#Region "ObjectSet Properties"
+'#End Region
+'#Region "AddTo Methods"
+        ''' <summary>
+        ''' Deprecated Method for adding a new object to the SupportTeams EntitySet. Consider using the .Add method of the associated ObjectSet&lt; T&gt;  property instead.
+        ''' </summary>
+        Public Sub AddToSupportTeams(ByVal supportTeam As StoredProcedures.Models.SupportTeam)
+            Me.AddObject("SupportTeams", supportTeam)
+        End Sub
 
-		''' <summary>
-		''' No Metadata Documentation available.
-		''' </summary>
-		Public ReadOnly Property SupportTeams() As ObjectSet(Of SupportTeam)
-			Get
-				If (_SupportTeams Is Nothing) Then
-					_SupportTeams = MyBase.CreateObjectSet(Of SupportTeam)("SupportTeams")
-				End If
-				Return _SupportTeams
-			End Get
-		End Property
-		Private _SupportTeams As ObjectSet(Of SupportTeam)
+'#End Region
+'#Region "Function Imports"
+        ''' <summary>
+        ''' No Metadata Documentation available.
+        ''' </summary>
+        Public Function SelectSupportTeam() As ObjectResult(Of StoredProcedures.Models.SelectSupportTeam_Result)
+            Return Me.ExecuteFunction(Of StoredProcedures.Models.SelectSupportTeam_Result)("SelectSupportTeam")
+        End Function
 
-		#End Region
-		#Region "AddTo Methods"
+        ''' <summary>
+        ''' No Metadata Documentation available.
+        ''' </summary>
+        ''' <param name="id">No Metadata Documentation available.</param>
+        Public Function DeleteSupportEngineer(ByVal id As System.Nullable(Of Global.System.Int32)) As ObjectResult(Of System.Nullable(Of Global.System.Int32))
+            Dim idParameter As System.Data.Objects.ObjectParameter
+            If id.HasValue Then
+                idParameter = New System.Data.Objects.ObjectParameter("Id", id)
+            Else
+                idParameter = New System.Data.Objects.ObjectParameter("Id", GetType(Global.System.Int32))
+            End If
 
-		''' <summary>
-		''' Deprecated Method for adding a new object to the SupportTeams EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-		''' </summary>
-		Public Sub AddToSupportTeams(ByVal supportTeam As SupportTeam)
-			MyBase.AddObject("SupportTeams", supportTeam)
-		End Sub
+            Return Me.ExecuteFunction(Of System.Nullable(Of Global.System.Int32))("DeleteSupportEngineer", idParameter)
+        End Function
 
-		#End Region
-		#Region "Function Imports"
+        ''' <summary>
+        ''' No Metadata Documentation available.
+        ''' </summary>
+        ''' <param name="name">No Metadata Documentation available.</param>
+        Public Function InsertSupportEngineer(ByVal name As Global.System.[String]) As ObjectResult(Of System.Nullable(Of Global.System.[Decimal]))
+            Dim nameParameter As System.Data.Objects.ObjectParameter
+            If Not Equals(name, Nothing) Then
+                nameParameter = New System.Data.Objects.ObjectParameter("name", name)
+            Else
+                nameParameter = New System.Data.Objects.ObjectParameter("name", GetType(Global.System.[String]))
+            End If
 
-		''' <summary>
-		''' No Metadata Documentation available.
-		''' </summary>
-		Public Function SelectSupportTeam() As ObjectResult(Of SelectSupportTeam_Result)
-			Return MyBase.ExecuteFunction(Of SelectSupportTeam_Result)("SelectSupportTeam")
-		End Function
+            Return Me.ExecuteFunction(Of System.Nullable(Of Global.System.[Decimal]))("InsertSupportEngineer", nameParameter)
+        End Function
+'#End Region
+    End Class
 
-		''' <summary>
-		''' No Metadata Documentation available.
-		''' </summary>
-		''' <param name="id">No Metadata Documentation available.</param>
-		Public Function DeleteSupportEngineer(ByVal id As Nullable(Of Global.System.Int32)) As ObjectResult(Of Nullable(Of Global.System.Int32))
-			Dim idParameter As ObjectParameter
-			If id.HasValue Then
-				idParameter = New ObjectParameter("Id", id)
-			Else
-				idParameter = New ObjectParameter("Id", GetType(Global.System.Int32))
-			End If
+'#End Region
+'#Region "Entities"
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName:="StoredProcedureModel", Name:="SupportTeam")>
+    <System.SerializableAttribute()>
+    <System.Runtime.Serialization.DataContractAttribute(IsReference:=True)>
+    Public Partial Class SupportTeam
+        Inherits System.Data.Objects.DataClasses.EntityObject
 
-			Return MyBase.ExecuteFunction(Of Nullable(Of Global.System.Int32))("DeleteSupportEngineer", idParameter)
-		End Function
+'#Region "Factory Method"
+        ''' <summary>
+        ''' Create a new SupportTeam object.
+        ''' </summary>
+        ''' <param name="id">Initial value of the Id property.</param>
+        ''' <param name="name">Initial value of the Name property.</param>
+        Public Shared Function CreateSupportTeam(ByVal id As Global.System.Int32, ByVal name As Global.System.[String]) As SupportTeam
+            Dim supportTeam As StoredProcedures.Models.SupportTeam = New StoredProcedures.Models.SupportTeam()
+            supportTeam.Id = id
+            supportTeam.Name = name
+            Return supportTeam
+        End Function
 
-		''' <summary>
-		''' No Metadata Documentation available.
-		''' </summary>
-		''' <param name="name">No Metadata Documentation available.</param>
-		Public Function InsertSupportEngineer(ByVal name As Global.System.String) As ObjectResult(Of Nullable(Of Global.System.Decimal))
-			Dim nameParameter As ObjectParameter
-			If name IsNot Nothing Then
-				nameParameter = New ObjectParameter("name", name)
-			Else
-				nameParameter = New ObjectParameter("name", GetType(Global.System.String))
-			End If
+'#End Region
+'#Region "Primitive Properties"
+        ''' <summary>
+        ''' No Metadata Documentation available.
+        ''' </summary>
+        <System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty:=True, IsNullable:=False)>
+        <System.Runtime.Serialization.DataMemberAttribute()>
+        Public Property Id As Global.System.Int32
+            Get
+                Return Me._Id
+            End Get
 
-			Return MyBase.ExecuteFunction(Of Nullable(Of Global.System.Decimal))("InsertSupportEngineer", nameParameter)
-		End Function
+            Set(ByVal value As Global.System.Int32)
+                If Me._Id <> value Then
+                    Me.OnIdChanging(value)
+                    Me.ReportPropertyChanging("Id")
+                    Me._Id = System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+                    Me.ReportPropertyChanged("Id")
+                    Me.OnIdChanged()
+                End If
+            End Set
+        End Property
 
-		#End Region
-	End Class
+        Private _Id As Global.System.Int32
 
+        Partial Private Sub OnIdChanging(ByVal value As Global.System.Int32)
+        End Sub
 
-	#End Region
+        Partial Private Sub OnIdChanged()
+        End Sub
 
-	#Region "Entities"
+        ''' <summary>
+        ''' No Metadata Documentation available.
+        ''' </summary>
+        <System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty:=False, IsNullable:=False)>
+        <System.Runtime.Serialization.DataMemberAttribute()>
+        Public Property Name As Global.System.[String]
+            Get
+                Return Me._Name
+            End Get
 
-	''' <summary>
-	''' No Metadata Documentation available.
-	''' </summary>
-	<EdmEntityTypeAttribute(NamespaceName:="StoredProcedureModel", Name:="SupportTeam"), Serializable(), DataContractAttribute(IsReference:=True)> _
-	Partial Public Class SupportTeam
-		Inherits EntityObject
-		#Region "Factory Method"
+            Set(ByVal value As Global.System.[String])
+                Me.OnNameChanging(value)
+                Me.ReportPropertyChanging("Name")
+                Me._Name = System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, False)
+                Me.ReportPropertyChanged("Name")
+                Me.OnNameChanged()
+            End Set
+        End Property
 
-		''' <summary>
-		''' Create a new SupportTeam object.
-		''' </summary>
-		''' <param name="id">Initial value of the Id property.</param>
-		''' <param name="name">Initial value of the Name property.</param>
-		Public Shared Function CreateSupportTeam(ByVal id As Global.System.Int32, ByVal name As Global.System.String) As SupportTeam
-			Dim supportTeam As New SupportTeam()
-			supportTeam.Id = id
-			supportTeam.Name = name
-			Return supportTeam
-		End Function
+        Private _Name As Global.System.[String]
 
-		#End Region
-		#Region "Primitive Properties"
+        Partial Private Sub OnNameChanging(ByVal value As Global.System.[String])
+        End Sub
 
-		''' <summary>
-		''' No Metadata Documentation available.
-		''' </summary>
-		<EdmScalarPropertyAttribute(EntityKeyProperty:=True, IsNullable:=False), DataMemberAttribute()> _
-		Public Property Id() As Global.System.Int32
-			Get
-				Return _Id
-			End Get
-			Set(ByVal value As System.Int32)
-				If _Id <> value Then
-					OnIdChanging(value)
-					ReportPropertyChanging("Id")
-					_Id = StructuralObject.SetValidValue(value)
-					ReportPropertyChanged("Id")
-					OnIdChanged()
-				End If
-			End Set
-		End Property
-		Private _Id As Global.System.Int32
-		Partial Private Sub OnIdChanging(ByVal value As Global.System.Int32)
-		End Sub
-		Partial Private Sub OnIdChanged()
-		End Sub
+        Partial Private Sub OnNameChanged()
+        End Sub
 
-		''' <summary>
-		''' No Metadata Documentation available.
-		''' </summary>
-		<EdmScalarPropertyAttribute(EntityKeyProperty:=False, IsNullable:=False), DataMemberAttribute()> _
-		Public Property Name() As Global.System.String
-			Get
-				Return _Name
-			End Get
-			Set(ByVal value As System.String)
-				OnNameChanging(value)
-				ReportPropertyChanging("Name")
-				_Name = StructuralObject.SetValidValue(value, False)
-				ReportPropertyChanged("Name")
-				OnNameChanged()
-			End Set
-		End Property
-		Private _Name As Global.System.String
-		Partial Private Sub OnNameChanging(ByVal value As Global.System.String)
-		End Sub
-		Partial Private Sub OnNameChanged()
-		End Sub
+        ''' <summary>
+        ''' No Metadata Documentation available.
+        ''' </summary>
+        <System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty:=False, IsNullable:=True)>
+        <System.Runtime.Serialization.DataMemberAttribute()>
+        Public Property ChangeDate As Nullable(Of Global.System.DateTime)
+            Get
+                Return Me._ChangeDate
+            End Get
 
-		''' <summary>
-		''' No Metadata Documentation available.
-		''' </summary>
-		<EdmScalarPropertyAttribute(EntityKeyProperty:=False, IsNullable:=True), DataMemberAttribute()> _
-		Public Property ChangeDate() As Nullable(Of Global.System.DateTime)
-			Get
-				Return _ChangeDate
-			End Get
-			Set(ByVal value As Nullable(Of System.DateTime))
-				OnChangeDateChanging(value)
-				ReportPropertyChanging("ChangeDate")
-				_ChangeDate = StructuralObject.SetValidValue(value)
-				ReportPropertyChanged("ChangeDate")
-				OnChangeDateChanged()
-			End Set
-		End Property
-		Private _ChangeDate As Nullable(Of Global.System.DateTime)
-		Partial Private Sub OnChangeDateChanging(ByVal value As Nullable(Of Global.System.DateTime))
-		End Sub
-		Partial Private Sub OnChangeDateChanged()
-		End Sub
+            Set(ByVal value As Nullable(Of Global.System.DateTime))
+                Me.OnChangeDateChanging(value)
+                Me.ReportPropertyChanging("ChangeDate")
+                Me._ChangeDate = System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+                Me.ReportPropertyChanged("ChangeDate")
+                Me.OnChangeDateChanged()
+            End Set
+        End Property
 
-		#End Region
+        Private _ChangeDate As System.Nullable(Of Global.System.DateTime)
 
-	End Class
+        Partial Private Sub OnChangeDateChanging(ByVal value As System.Nullable(Of Global.System.DateTime))
+        End Sub
 
-	#End Region
-	#Region "ComplexTypes"
+        Partial Private Sub OnChangeDateChanged()
+        End Sub
+'#End Region
+    End Class
 
-	''' <summary>
-	''' No Metadata Documentation available.
-	''' </summary>
-	<EdmComplexTypeAttribute(NamespaceName:="StoredProcedureModel", Name:="SelectSupportTeam_Result"), DataContractAttribute(IsReference:=True), Serializable()> _
-	Partial Public Class SelectSupportTeam_Result
-		Inherits ComplexObject
-		#Region "Factory Method"
+'#End Region
+'#Region "ComplexTypes"
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <System.Data.Objects.DataClasses.EdmComplexTypeAttribute(NamespaceName:="StoredProcedureModel", Name:="SelectSupportTeam_Result")>
+    <System.Runtime.Serialization.DataContractAttribute(IsReference:=True)>
+    <System.SerializableAttribute()>
+    Public Partial Class SelectSupportTeam_Result
+        Inherits System.Data.Objects.DataClasses.ComplexObject
 
-		''' <summary>
-		''' Create a new SelectSupportTeam_Result object.
-		''' </summary>
-		''' <param name="id">Initial value of the Id property.</param>
-		''' <param name="name">Initial value of the Name property.</param>
-		Public Shared Function CreateSelectSupportTeam_Result(ByVal id As Global.System.Int32, ByVal name As Global.System.String) As SelectSupportTeam_Result
-			Dim selectSupportTeam_Result As New SelectSupportTeam_Result()
-			selectSupportTeam_Result.Id = id
-			selectSupportTeam_Result.Name = name
-			Return selectSupportTeam_Result
-		End Function
+'#Region "Factory Method"
+        ''' <summary>
+        ''' Create a new SelectSupportTeam_Result object.
+        ''' </summary>
+        ''' <param name="id">Initial value of the Id property.</param>
+        ''' <param name="name">Initial value of the Name property.</param>
+        Public Shared Function CreateSelectSupportTeam_Result(ByVal id As Global.System.Int32, ByVal name As Global.System.[String]) As SelectSupportTeam_Result
+            Dim selectSupportTeam_Result As StoredProcedures.Models.SelectSupportTeam_Result = New StoredProcedures.Models.SelectSupportTeam_Result()
+            selectSupportTeam_Result.Id = id
+            selectSupportTeam_Result.Name = name
+            Return selectSupportTeam_Result
+        End Function
 
-		#End Region
-		#Region "Primitive Properties"
+'#End Region
+'#Region "Primitive Properties"
+        ''' <summary>
+        ''' No Metadata Documentation available.
+        ''' </summary>
+        <System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty:=False, IsNullable:=False)>
+        <System.Runtime.Serialization.DataMemberAttribute()>
+        Public Property Id As Global.System.Int32
+            Get
+                Return Me._Id
+            End Get
 
-		''' <summary>
-		''' No Metadata Documentation available.
-		''' </summary>
-		<EdmScalarPropertyAttribute(EntityKeyProperty:=False, IsNullable:=False), DataMemberAttribute()> _
-		Public Property Id() As Global.System.Int32
-			Get
-				Return _Id
-			End Get
-			Set(ByVal value As System.Int32)
-				OnIdChanging(value)
-				ReportPropertyChanging("Id")
-				_Id = StructuralObject.SetValidValue(value)
-				ReportPropertyChanged("Id")
-				OnIdChanged()
-			End Set
-		End Property
-		Private _Id As Global.System.Int32
-		Partial Private Sub OnIdChanging(ByVal value As Global.System.Int32)
-		End Sub
-		Partial Private Sub OnIdChanged()
-		End Sub
+            Set(ByVal value As Global.System.Int32)
+                Me.OnIdChanging(value)
+                Me.ReportPropertyChanging("Id")
+                Me._Id = System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value)
+                Me.ReportPropertyChanged("Id")
+                Me.OnIdChanged()
+            End Set
+        End Property
 
-		''' <summary>
-		''' No Metadata Documentation available.
-		''' </summary>
-		<EdmScalarPropertyAttribute(EntityKeyProperty:=False, IsNullable:=False), DataMemberAttribute()> _
-		Public Property Name() As Global.System.String
-			Get
-				Return _Name
-			End Get
-			Set(ByVal value As System.String)
-				OnNameChanging(value)
-				ReportPropertyChanging("Name")
-				_Name = StructuralObject.SetValidValue(value, False)
-				ReportPropertyChanged("Name")
-				OnNameChanged()
-			End Set
-		End Property
-		Private _Name As Global.System.String
-		Partial Private Sub OnNameChanging(ByVal value As Global.System.String)
-		End Sub
-		Partial Private Sub OnNameChanged()
-		End Sub
+        Private _Id As Global.System.Int32
 
-		#End Region
-	End Class
+        Partial Private Sub OnIdChanging(ByVal value As Global.System.Int32)
+        End Sub
 
-	#End Region
+        Partial Private Sub OnIdChanged()
+        End Sub
 
+        ''' <summary>
+        ''' No Metadata Documentation available.
+        ''' </summary>
+        <System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty:=False, IsNullable:=False)>
+        <System.Runtime.Serialization.DataMemberAttribute()>
+        Public Property Name As Global.System.[String]
+            Get
+                Return Me._Name
+            End Get
+
+            Set(ByVal value As Global.System.[String])
+                Me.OnNameChanging(value)
+                Me.ReportPropertyChanging("Name")
+                Me._Name = System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, False)
+                Me.ReportPropertyChanged("Name")
+                Me.OnNameChanged()
+            End Set
+        End Property
+
+        Private _Name As Global.System.[String]
+
+        Partial Private Sub OnNameChanging(ByVal value As Global.System.[String])
+        End Sub
+
+        Partial Private Sub OnNameChanged()
+        End Sub
+'#End Region
+    End Class
+'#End Region
 End Namespace
